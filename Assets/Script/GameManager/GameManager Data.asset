@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67567a8d483d3724abd605ab37582841, type: 3}
+  m_Name: GameManager Data
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 2625943214897898369, guid: 23df5243258e6c0478600844d57ba093, type: 3}
+  taptap: {fileID: 1699685428561725298, guid: 1ddbf603e4e6208478d4cecdbe96f894, type: 3}
+  takeDmgVfx: {fileID: 3369609681391213935, guid: d1754d8f160f3bc42890f333fc061258, type: 3}
+  phase: []
