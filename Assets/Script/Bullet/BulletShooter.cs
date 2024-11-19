@@ -9,6 +9,8 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private ItemData[] itemBuff;
     private int currentItemBuff = 0;
     [SerializeField] private ObjectPooling bulletPool;
+    [SerializeField] private ObjectPooling ringBulletPool;
+    [SerializeField] private Vector3 ringBulletOffset;
     [SerializeField] private float shootingRate;
     [SerializeField] private Vector3 centerPoint;
     [SerializeField] private float distanceBetweenBullet;
@@ -32,13 +34,14 @@ public class BulletShooter : MonoBehaviour
             float mostLeftBulletOffsetX = level % 2 == 0 ? (-0.0625f - distanceBetweenBullet * (float)(sub - 1)) : (-distanceBetweenBullet * (float)sub);
             //Debug.Log(mostLeftBulletOffsetX);
             //neu level == 2 thi offset vien dan dau tien = -0.0625
-            float offset = centerPoint.x + mostLeftBulletOffsetX;
             if(!isSuperior)
             {
+                float offset = centerPoint.x + mostLeftBulletOffsetX;
                 ShootNormal(offset);
             }
             else
             {
+                float offset = mostLeftBulletOffsetX;
                 ShootSuperior(offset);
             }
             shootingRateCounter = shootingRate;
@@ -70,10 +73,17 @@ public class BulletShooter : MonoBehaviour
         {
             GameObject bullet= bulletPool.GetObject();
             bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
             bullet.transform.DOMoveX(transform.position.x + offset, 0.1f);
             offset += distanceBetweenBullet;
         }
+        RingBullet(ringBulletOffset);
+    }
+    private void RingBullet(Vector3 posOffset)
+    {
+        GameObject ringBulletLeft = ringBulletPool.GetObject();
+        ringBulletLeft.transform.position = transform.position + posOffset;
+        GameObject ringBulletRight = ringBulletPool.GetObject();
+        ringBulletRight.transform.position = transform.position - posOffset;
     }
     private void ShootNormal(float offset)
     {
@@ -81,12 +91,10 @@ public class BulletShooter : MonoBehaviour
         {
             GameObject bulletLeft = bulletPool.GetObject();
             bulletLeft.transform.position = transform.position + centerPoint;
-            bulletLeft.transform.rotation = transform.rotation;
             bulletLeft.transform.DOMoveX(transform.position.x + offset, 0.05f);
 
             GameObject bulletRight = bulletPool.GetObject();
             bulletRight.transform.position = transform.position - centerPoint;
-            bulletRight.transform.rotation = transform.rotation;
             bulletRight.transform.DOMoveX(transform.position.x - offset, 0.05f);
 
             offset += 0.13f;

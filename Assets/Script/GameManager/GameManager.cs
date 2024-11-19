@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameManagerData _data;
     [SerializeField] private GameObject item;
     [SerializeField] private GameObject upgradingItem;
-    public int killCountOfPhase = 0;
+    public int killCount = 0;
     //~~~~~~~~~~ItemSystem~~~~~~~~~~
     private int itemDropCount = 1;
     private Vector3 itemDropPos;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         {
             taptap.SetActive(false);
         }
-        if(phases[currentPhase].transform.childCount == 0 || forceToNextPhase)
+        if((killCount == 39 && phases[0].activeSelf) || forceToNextPhase)
         {
             IntoNextPhase();
         }
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     }
     private void DropItem()
     {
-        if(killCountOfPhase >= itemDropCount && itemCount < 4)
+        if(killCount >= itemDropCount && itemCount < 4)
         {
             itemDropCount += 4;
             itemCount++;
@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
         if(currentPhase < phases.Length - 1)
         {
             phases[++currentPhase].SetActive(true);
-            killCountOfPhase = 0;
         }
         forceToNextPhase = false;
     }

@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     }
     private void TurnOffBullet()
     {
-        FindObjectOfType<ObjectPooling>().ReturnObject(gameObject);
+        GetComponentInParent<ObjectPooling>().ReturnObject(gameObject);
     }
     private IEnumerator TurnOff()
     {

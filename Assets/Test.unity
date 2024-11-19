@@ -382,6 +382,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1071926224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071926225}
+  - component: {fileID: 1071926226}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1071926225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071926224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3627663, y: -5.4078903, z: 0.10291701}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1071926226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071926224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747e3cfb8d5e09f4c81a6f1106882987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076978934
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +521,7 @@ GameObject:
   - component: {fileID: 1310322781}
   - component: {fileID: 1310322782}
   m_Layer: 0
-  m_Name: ObjectPooling
+  m_Name: BulletPooling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,6 +703,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1406525, y: 1.2103257}
   m_EdgeRadius: 0
+--- !u!1 &1623343386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623343388}
+  - component: {fileID: 1623343387}
+  m_Layer: 0
+  m_Name: RingBulletPooling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1623343387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623343386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea0648770d98cb4c9c9f8be87d69534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefs: {fileID: 4087104881612175932, guid: 723116c2517fec54c9844efbe7ab5a1e, type: 3}
+  poolSize: 100
+--- !u!4 &1623343388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623343386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683579953
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +809,7 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 6ce21ce4ec9069b4aa0cd22e76a09b1a, type: 2}
   item: {fileID: 7487761973983779057, guid: 76b40370e5e2969488cad21e3161b9b6, type: 3}
   upgradingItem: {fileID: 1789349471609778330, guid: 2e8c5f5e83290c24e8df749bd9631565, type: 3}
-  killCountOfPhase: 0
+  killCount: 0
   isObtaningItem: 0
   forceToNextPhase: 0
 --- !u!1 &2059969522
@@ -772,6 +862,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc02218777d51f541810855cebd4aa72, type: 2}
   - {fileID: 11400000, guid: e9b2d7c49221f8a4c8191e110d4c6f2f, type: 2}
   bulletPool: {fileID: 1310322782}
+  ringBulletPool: {fileID: 1623343387}
+  ringBulletOffset: {x: -0.35, y: 0, z: 0}
   shootingRate: 0.1
   centerPoint: {x: -0.265, y: 0, z: 0}
   distanceBetweenBullet: 0.15
