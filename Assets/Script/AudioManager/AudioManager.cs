@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioData _data { get; private set; }
+
     private AudioSource backGroundMusic;
     
     // Start is called before the first frame update
