@@ -29,6 +29,7 @@ public class BulletShooter : MonoBehaviour
         shootingRateCounter -= Time.deltaTime;
         if (InputManager.instance.isInteracting && shootingRateCounter <= 0f)
         {
+            AudioManager.instance.PlayOnShot(1, AudioManager.instance._data.shootingSound);
             int sub = (level/2);
             // tinh offset vien dan dau tien sau do moi vien dan cach nhau 0.13 ( TH chan va TH le )
             float mostLeftBulletOffsetX = level % 2 == 0 ? (-0.0625f - distanceBetweenBullet * (float)(sub - 1)) : (-distanceBetweenBullet * (float)sub);
@@ -59,6 +60,7 @@ public class BulletShooter : MonoBehaviour
             isSuperior = true;
             shootingRate = itemBuff.bonusAttackSpeed;
             level = itemBuff.bonusLevel;
+            AudioManager.instance.PlayOnShot(4,AudioManager.instance._data.intoSuperiorSound);
             FindObjectOfType<PlayerBehave>().GetComponent<Animator>().SetTrigger("intoSuperior");
         }
         else

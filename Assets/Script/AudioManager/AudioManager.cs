@@ -5,20 +5,21 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public AudioData _data { get; private set; }
+    public AudioData _data;
 
-    private AudioSource backGroundMusic;
+    [SerializeField] private AudioSource[] audio;
+
     
     // Start is called before the first frame update
     void Start()
     {
         if(instance == null) { instance = this; }
         else { Destroy(gameObject); }
+        audio[0].clip = _data.backGroundSound;
+        audio[0].Play();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void PlayOnShot(int index, AudioClip clip)
     {
-        
+        audio[index].PlayOneShot(clip);
     }
 }

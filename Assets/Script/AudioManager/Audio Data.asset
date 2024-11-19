@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ad2b9c6572af2489c542cfed0a7a26, type: 3}
+  m_Name: Audio Data
+  m_EditorClassIdentifier: 
+  backGroundSound: {fileID: 8300000, guid: 97ee54f326d1a4541ad145533d5247eb, type: 3}
+  shootingSound: {fileID: 8300000, guid: 2cc328b3597f02b40b981b33b2811de4, type: 3}
+  explosiveSound: {fileID: 8300000, guid: 723b293cea1d7144da4375cb1701f2f7, type: 3}
+  obtainItem: {fileID: 8300000, guid: 3f9cc5c924ec21d409d3eb26d2afd9b2, type: 3}
+  intoSuperiorSound: {fileID: 8300000, guid: 1d99cc6af5d7b8e4a8fbc5b856287790, type: 3}

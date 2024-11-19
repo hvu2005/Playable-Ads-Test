@@ -61,6 +61,7 @@ public class Item : MonoBehaviour
             if (distance < 0.1f)
             {
                 gameObject.SetActive(false);
+                AudioManager.instance.PlayOnShot(3, AudioManager.instance._data.obtainItem);
                 GameManager.instance.isObtaningItem = true;
             }
         }

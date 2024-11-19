@@ -21,9 +21,14 @@ public class InputManager : MonoBehaviour
     {
         if (!canAction)
         {
+            SetAll(false);
             return;
         }
 
         isInteracting = Input.GetMouseButton(0);
+    }
+    private void SetAll(bool active)
+    {
+        isInteracting = active;
     }
 }
