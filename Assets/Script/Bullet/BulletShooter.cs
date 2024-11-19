@@ -13,7 +13,7 @@ public class BulletShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        level = 2;
     }
 
     // Update is called once per frame

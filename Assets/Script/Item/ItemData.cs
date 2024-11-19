@@ -5,6 +5,5 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public float bonusAttackSpeed;
-    public int left;
-    public int right;
+    public int bonusLevel;
 }

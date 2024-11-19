@@ -6,11 +6,10 @@ using UnityEngine.Pool;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-
     // Update is called once per frame
     void OnEnable()
     {
-        Invoke("TurnOffBullet", 1f);    
+        StartCoroutine(TurnOff());
     }
     void Update()
     {
@@ -19,10 +18,17 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Enemy"))
-        TurnOffBullet();
+        {
+            TurnOffBullet();
+        }
     }
     private void TurnOffBullet()
     {
         FindObjectOfType<ObjectPooling>().ReturnObject(gameObject);
+    }
+    private IEnumerator TurnOff()
+    {
+        yield return new WaitForSeconds(1f);
+        TurnOffBullet();
     }
 }
