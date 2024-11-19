@@ -8,5 +8,5 @@ public class GameManagerData : ScriptableObject
     public GameObject canvas;
     public GameObject taptap;
     public GameObject takeDmgVfx;
-    public GameObject[] phase;
+    public GameObject[] phases;
 }

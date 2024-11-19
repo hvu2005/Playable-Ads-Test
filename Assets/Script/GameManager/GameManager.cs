@@ -1,6 +1,7 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,13 +9,25 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private GameManagerData _data;
+    [SerializeField] private GameObject item;
     
+    public int killCountOfPhase = 0;
+    private int itemDropCount = 1;
+    private Vector3 itemDropPos;
     private GameObject canvas;
     private GameObject taptap;
     private GameObject takeDmgVfx;
+    private GameObject[] phases;
+    private int currentPhase;
     //instantiate data
     private void InstantiateData()
     {
+        phases = new GameObject[_data.phases.Length];
+        for (int i = 0; i < _data.phases.Length; i++)
+        {
+            phases[i] = Instantiate(_data.phases[i]);
+            phases[i].SetActive(false);
+        }
         canvas = Instantiate(_data.canvas);
         takeDmgVfx = Instantiate(_data.takeDmgVfx, canvas.transform);
         taptap = Instantiate(_data.taptap, canvas.transform);
@@ -33,12 +46,31 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         InstantiateData();
+        phases[0].SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (InputManager.instance.isInteracting)
+        {
+            taptap.SetActive(false);
+        }
+        DropItem();
+    }
+    private void DropItem()
+    {
+        if(killCountOfPhase >= itemDropCount)
+        {
+            itemDropCount += 4;
+            Instantiate(item, itemDropPos, Quaternion.identity);
+        }
+    }
+    private void IntoNextPhase()
+    {
+        phases[currentPhase].SetActive(false);
+        phases[++currentPhase].SetActive(true);
+        killCountOfPhase = 0;
     }
     #region takeDmg
     public void PlayerTakeDmg()
@@ -52,4 +84,8 @@ public class GameManager : MonoBehaviour
         takeDmgVfx.SetActive(false);
     }
     #endregion
+    public void ItemDropPosition(Vector3 pos)
+    {
+        itemDropPos = pos;
+    }
 }

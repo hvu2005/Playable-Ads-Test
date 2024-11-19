@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
         GetComponent<Animator>().SetTrigger("isDead");
         GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.45f);
+        GameManager.instance.ItemDropPosition(transform.position);
+        GameManager.instance.killCountOfPhase++;
         Destroy(gameObject);
     }
 }

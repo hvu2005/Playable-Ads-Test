@@ -15,4 +15,5 @@ MonoBehaviour:
   canvas: {fileID: 2625943214897898369, guid: 23df5243258e6c0478600844d57ba093, type: 3}
   taptap: {fileID: 1699685428561725298, guid: 1ddbf603e4e6208478d4cecdbe96f894, type: 3}
   takeDmgVfx: {fileID: 3369609681391213935, guid: d1754d8f160f3bc42890f333fc061258, type: 3}
-  phase: []
+  phases:
+  - {fileID: 7109168067661684661, guid: 6ff9008009433ed4f9a98596607a7b1f, type: 3}
