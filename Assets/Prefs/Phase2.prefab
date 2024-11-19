@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7563340936840794843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7563340936840794842}
+  - component: {fileID: 7563340936840794841}
+  m_Layer: 0
+  m_Name: Phase2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7563340936840794842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563340936840794843}
+  m_LocalRotation: {x: 0, y: 0.08715578, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 10, z: 0}
+--- !u!114 &7563340936840794841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563340936840794843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269aa612621d4f84183b366d07cb1afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 5248594647572146936, guid: 0295cd0574975f84b85db246b9330a5c, type: 3}
+  - {fileID: 7648548471036689269, guid: 2b754667b3950214cb7b10086146b6e8, type: 3}
+  - {fileID: 5626819625400276718, guid: 3ac51f2969e58f44fbde814b7ee8f692, type: 3}
+  - {fileID: 1481807163507755818, guid: 5c3ffe03b2aa3c14ca38c715efb2f8ff, type: 3}
+  - {fileID: 5514594049520806651, guid: 1e04cee66371f3244a4ca78ce790c9f7, type: 3}
+  - {fileID: 1583209113029348495, guid: 712aecaf5f4a4794a813967ee6e941c9, type: 3}
+  - {fileID: 1600815445761599229, guid: f9bafb6b4bf59a4488536e82c8267784, type: 3}
+  - {fileID: 7648548471036689269, guid: 2b754667b3950214cb7b10086146b6e8, type: 3}
+  - {fileID: 1481807163507755818, guid: 5c3ffe03b2aa3c14ca38c715efb2f8ff, type: 3}
+  - {fileID: 5626819625400276718, guid: 3ac51f2969e58f44fbde814b7ee8f692, type: 3}
+  bolatoas: {fileID: 7943520506005443034, guid: 95513a498bf901347ac1c14fe73e02e7, type: 3}
+  moveSpeed: 3

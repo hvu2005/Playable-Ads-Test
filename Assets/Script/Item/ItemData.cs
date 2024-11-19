@@ -7,4 +7,5 @@ public class ItemData : ScriptableObject
 {
     public float bonusAttackSpeed;
     public int bonusLevel;
+    public bool intoSuperior; //hoa sieu nhan
 }

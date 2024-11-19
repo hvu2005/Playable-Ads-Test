@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerBehave : MonoBehaviour
 {
+    
     private bool isImmortal;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,10 @@ public class PlayerBehave : MonoBehaviour
             GameManager.instance.PlayerTakeDmg();
             StartCoroutine(Immortal());
         }
+        //if(collision.CompareTag("Item"))
+        //{
+
+        //}
     }
     #endregion
     private IEnumerator Immortal()

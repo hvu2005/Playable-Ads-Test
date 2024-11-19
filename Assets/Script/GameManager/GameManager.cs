@@ -10,15 +10,19 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private GameManagerData _data;
     [SerializeField] private GameObject item;
-    
+    [SerializeField] private GameObject upgradingItem;
     public int killCountOfPhase = 0;
+    //~~~~~~~~~~item drop~~~~~~~~~~
     private int itemDropCount = 1;
     private Vector3 itemDropPos;
+    private int itemCount;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private GameObject canvas;
     private GameObject taptap;
     private GameObject takeDmgVfx;
     private GameObject[] phases;
     private int currentPhase;
+    public bool forceToNextPhase;
     //instantiate data
     private void InstantiateData()
     {
@@ -56,21 +60,37 @@ public class GameManager : MonoBehaviour
         {
             taptap.SetActive(false);
         }
+        if(phases[currentPhase].transform.childCount == 0 || forceToNextPhase)
+        {
+            IntoNextPhase();
+        }
         DropItem();
     }
     private void DropItem()
     {
-        if(killCountOfPhase >= itemDropCount)
+        if(killCountOfPhase >= itemDropCount && itemCount < 4)
         {
             itemDropCount += 4;
-            Instantiate(item, itemDropPos, Quaternion.identity);
+            itemCount++;
+            if(itemCount < 4)
+            {
+                Instantiate(item, itemDropPos, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(upgradingItem,itemDropPos, Quaternion.identity);    
+            }
         }
     }
     private void IntoNextPhase()
     {
         phases[currentPhase].SetActive(false);
-        phases[++currentPhase].SetActive(true);
-        killCountOfPhase = 0;
+        if(currentPhase < phases.Length - 1)
+        {
+            phases[++currentPhase].SetActive(true);
+            killCountOfPhase = 0;
+        }
+        forceToNextPhase = false;
     }
     #region takeDmg
     public void PlayerTakeDmg()
