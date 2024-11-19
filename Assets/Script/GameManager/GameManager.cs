@@ -108,4 +108,8 @@ public class GameManager : MonoBehaviour
     {
         itemDropPos = pos;
     }
+    public void StartGlobalCoroutine(IEnumerator routine)
+    {
+        StartCoroutine(routine);
+    }
 }

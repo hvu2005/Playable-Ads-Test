@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
+    private ObjectPooling explosivePool;
     [SerializeField] private int hp;
+    private void Start()
+    {
+        explosivePool = GameObject.FindGameObjectWithTag("Explosive").GetComponent<ObjectPooling>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            StartCoroutine(DyingExplosive());
+            StartCoroutine(DyingExplosion());
         }
         if(collision.CompareTag("Bullet"))
         {
+            Explosive(collision);
             hp--;
             if(hp == 0 )
             {
-                StartCoroutine(DyingExplosive());
+                StartCoroutine(DyingExplosion());
             }
+            
         }
     }
-    private IEnumerator DyingExplosive()
+    private void Explosive(Collider2D collision)
+    {
+        GameObject explosive = explosivePool.GetObject();
+        explosive.transform.position = collision.ClosestPoint(collision.transform.position);
+        GameManager.instance.StartGlobalCoroutine(ReturnObject(explosive, 0.5f));
+    }
+    private IEnumerator ReturnObject(GameObject explosive, float time)
+    {
+        yield return new WaitForSeconds(time);
+        explosivePool.ReturnObject(explosive);
+    }
+    private IEnumerator DyingExplosion()
     {
         GetComponent<Animator>().SetTrigger("isDead");
         GetComponent<BoxCollider2D>().enabled = false;
