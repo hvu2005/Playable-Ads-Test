@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject item;
     [SerializeField] private GameObject upgradingItem;
     public int killCountOfPhase = 0;
-    //~~~~~~~~~~item drop~~~~~~~~~~
+    //~~~~~~~~~~ItemSystem~~~~~~~~~~
     private int itemDropCount = 1;
     private Vector3 itemDropPos;
     private int itemCount;
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public bool isObtaningItem;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private GameObject canvas;
     private GameObject taptap;
     private GameObject takeDmgVfx;

@@ -13,7 +13,7 @@ public class ObjectPooling : MonoBehaviour
         pool = new List<GameObject>();
         for(int i = 0; i < poolSize; i++)
         {
-            GameObject bullet = Instantiate(prefs);
+            GameObject bullet = Instantiate(prefs,transform);
             bullet.SetActive(false);
             pool.Add(bullet);
         }
@@ -29,7 +29,7 @@ public class ObjectPooling : MonoBehaviour
             }
         }
 
-        GameObject newObj = Instantiate(prefs);
+        GameObject newObj = Instantiate(prefs,transform);
         newObj.SetActive(true);
         pool.Add(newObj);
         return newObj;

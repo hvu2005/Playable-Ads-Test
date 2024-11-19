@@ -31,6 +31,10 @@ public class Phase2 : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0f, -moveSpeed * Time.deltaTime, 0f);
-        if (transform.position.y < -50f) GameManager.instance.forceToNextPhase = true;
+        if (transform.position.y < -50f)
+        {
+            GameManager.instance.forceToNextPhase = true;
+            gameObject.SetActive(false);
+        }
     }
 }

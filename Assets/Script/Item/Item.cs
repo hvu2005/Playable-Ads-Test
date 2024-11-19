@@ -58,7 +58,11 @@ public class Item : MonoBehaviour
         if (distance < 1.5f)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-            if (distance < 0.1f) gameObject.SetActive(false);
+            if (distance < 0.1f)
+            {
+                gameObject.SetActive(false);
+                GameManager.instance.isObtaningItem = true;
+            }
         }
         else
         {

@@ -32,6 +32,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.45f);
         GameManager.instance.ItemDropPosition(transform.position);
         GameManager.instance.killCountOfPhase++;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

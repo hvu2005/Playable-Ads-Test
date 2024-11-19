@@ -720,6 +720,8 @@ MonoBehaviour:
   item: {fileID: 7487761973983779057, guid: 76b40370e5e2969488cad21e3161b9b6, type: 3}
   upgradingItem: {fileID: 1789349471609778330, guid: 2e8c5f5e83290c24e8df749bd9631565, type: 3}
   killCountOfPhase: 0
+  isObtaningItem: 0
+  forceToNextPhase: 0
 --- !u!1 &2059969522
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +766,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2595e36e3e136f94993684753da57665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemBuff:
+  - {fileID: 11400000, guid: 2c66807eac904384aae3cf0600ea5b2d, type: 2}
+  - {fileID: 11400000, guid: ff2d38474cf71604ead083731ab8e5ea, type: 2}
+  - {fileID: 11400000, guid: bc02218777d51f541810855cebd4aa72, type: 2}
+  - {fileID: 11400000, guid: e9b2d7c49221f8a4c8191e110d4c6f2f, type: 2}
   bulletPool: {fileID: 1310322782}
   shootingRate: 0.1
   centerPoint: {x: -0.265, y: 0, z: 0}
+  distanceBetweenBullet: 0.15
