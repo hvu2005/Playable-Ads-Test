@@ -9,7 +9,7 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private float shootingRate;
     [SerializeField] private Vector3 centerPoint;
     private float shootingRateCounter;
-    public int level;
+    private int level;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +44,10 @@ public class BulletShooter : MonoBehaviour
             }
             shootingRateCounter = shootingRate;
         }
+    }
+    private void UpgradePower()
+    {
+
     }
 }
 //Center point -0.265f
