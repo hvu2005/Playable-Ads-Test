@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int hp;
+    [SerializeField] private EnemyData _data;
+    private int hp;
+    void Start()
+    {
+        hp = _data.hp;    
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
