@@ -2,12 +2,13 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private GameManagerData _data;
-
+    
     private GameObject canvas;
     private GameObject taptap;
     private GameObject takeDmgVfx;
