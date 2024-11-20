@@ -10,7 +10,7 @@ public class BulletShooter : MonoBehaviour
     private int currentItemBuff = 0;
     [SerializeField] private ObjectPooling bulletPool;
     [SerializeField] private ObjectPooling ringBulletPool;
-    [SerializeField] private Vector3 ringBulletOffset;
+    [SerializeField] private float ringBulletOffsetX;
     [SerializeField] private float shootingRate;
     [SerializeField] private Vector3 centerPoint;
     [SerializeField] private float distanceBetweenBullet;
@@ -34,7 +34,7 @@ public class BulletShooter : MonoBehaviour
             // tinh offset vien dan dau tien sau do moi vien dan cach nhau DistanceBetweenBullet ( TH chan va TH le )
             float mostLeftBulletOffsetX = level % 2 == 0 ? (-distanceBetweenBullet/2 - distanceBetweenBullet * (float)(sub - 1)) : (-distanceBetweenBullet * (float)sub);
             //Debug.Log(mostLeftBulletOffsetX);
-            //neu level == 2 thi offset vien dan dau tien = -DistanceBetweenBullet
+            //neu level == 2 thi offset vien dan dau tien = -DistanceBetweenBullet/2
             if (!isSuperior)
             {
                 float offset = centerPoint.x + mostLeftBulletOffsetX;
@@ -75,17 +75,18 @@ public class BulletShooter : MonoBehaviour
         {
             GameObject bullet= bulletPool.GetObject();
             bullet.transform.position = transform.position;
-            bullet.transform.DOMoveX(transform.position.x + offset, 0.1f);
+            bullet.transform.DOMoveX(transform.position.x + offset, 0.15f);
+
             offset += distanceBetweenBullet;
         }
-        RingBullet(ringBulletOffset);
+        RingBullet();
     }
-    private void RingBullet(Vector3 posOffset)
+    private void RingBullet()
     {
         GameObject ringBulletLeft = ringBulletPool.GetObject();
-        ringBulletLeft.transform.position = transform.position + posOffset;
+        ringBulletLeft.transform.position = transform.position + new Vector3(ringBulletOffsetX, -0.25f,0f);
         GameObject ringBulletRight = ringBulletPool.GetObject();
-        ringBulletRight.transform.position = transform.position - posOffset;
+        ringBulletRight.transform.position = transform.position + new Vector3(-ringBulletOffsetX, -0.25f, 0f);
     }
     private void ShootNormal(float offset)
     {

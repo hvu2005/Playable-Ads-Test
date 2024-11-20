@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         {
             taptap.SetActive(false);
         }
-        if((killCount == 39 && phases[0].activeSelf) || forceToNextPhase)
+        if(phases[currentPhase].transform.childCount == 0 || forceToNextPhase)
         {
             IntoNextPhase();
         }

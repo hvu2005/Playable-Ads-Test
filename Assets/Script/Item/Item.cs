@@ -10,13 +10,14 @@ public class Item : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float fallSpeed;
     [SerializeField] private GameObject effect;
+    [SerializeField] private Vector3 offset;
     private bool canMove;
     private Vector3 originPos;
     private PlayerBehave player;
     // Start is called before the first frame update
     void Start()
     {
-        originPos = transform.position + new Vector3(0.35f,0.35f,0f);
+        originPos = transform.position + offset;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehave>();
         StartCoroutine(Spawning());
     }

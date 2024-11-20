@@ -12,25 +12,26 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Bound")) Destroy(gameObject);
         if(collision.CompareTag("Player"))
         {
             StartCoroutine(DyingExplosion());
         }
         if(collision.CompareTag("Bullet"))
         {
-            Explosive(collision);
             hp--;
             if(hp == 0 )
             {
                 StartCoroutine(DyingExplosion());
+                return;
             }
-            
+            Explosive(collision);
         }
     }
     private void Explosive(Collider2D collision)
     {
         GameObject explosive = explosivePool.GetObject();
-        explosive.transform.position = collision.ClosestPoint(collision.transform.position);
+        explosive.transform.position = collision.ClosestPoint(transform.position);
         GameManager.instance.StartGlobalCoroutine(ReturnObject(explosive, 0.5f));
     }
     private IEnumerator ReturnObject(GameObject explosive, float time)
@@ -46,6 +47,11 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.45f);
         GameManager.instance.ItemDropPosition(transform.position);
         GameManager.instance.killCount++;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
     }
 }
