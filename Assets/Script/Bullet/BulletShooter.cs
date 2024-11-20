@@ -31,11 +31,11 @@ public class BulletShooter : MonoBehaviour
         {
             AudioManager.instance.PlayOnShot(1, AudioManager.instance._data.shootingSound);
             int sub = (level/2);
-            // tinh offset vien dan dau tien sau do moi vien dan cach nhau 0.13 ( TH chan va TH le )
-            float mostLeftBulletOffsetX = level % 2 == 0 ? (-0.0625f - distanceBetweenBullet * (float)(sub - 1)) : (-distanceBetweenBullet * (float)sub);
+            // tinh offset vien dan dau tien sau do moi vien dan cach nhau DistanceBetweenBullet ( TH chan va TH le )
+            float mostLeftBulletOffsetX = level % 2 == 0 ? (-distanceBetweenBullet/2 - distanceBetweenBullet * (float)(sub - 1)) : (-distanceBetweenBullet * (float)sub);
             //Debug.Log(mostLeftBulletOffsetX);
-            //neu level == 2 thi offset vien dan dau tien = -0.0625
-            if(!isSuperior)
+            //neu level == 2 thi offset vien dan dau tien = -DistanceBetweenBullet
+            if (!isSuperior)
             {
                 float offset = centerPoint.x + mostLeftBulletOffsetX;
                 ShootNormal(offset);
