@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private ObjectPooling explosivePool;
     [SerializeField] private int hp;
+    public float yPosition;
     private void Start()
     {
         explosivePool = GameObject.FindGameObjectWithTag("Explosive").GetComponent<ObjectPooling>();

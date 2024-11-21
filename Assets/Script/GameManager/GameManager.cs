@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         }
         InstantiateData();
         phases[0].SetActive(true);
+        phases[0].transform.position = new Vector3(0f, Camera.main.orthographicSize, 0f);
     }
 
     // Update is called once per frame
@@ -111,5 +112,10 @@ public class GameManager : MonoBehaviour
     public void StartGlobalCoroutine(IEnumerator routine)
     {
         StartCoroutine(routine);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(new Vector3(0f, Camera.main.orthographicSize, 0f), 0.25f);
+        Gizmos.DrawSphere(new Vector3(0f, -Camera.main.orthographicSize, 0f), 0.25f);
     }
 }

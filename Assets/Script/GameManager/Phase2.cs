@@ -26,7 +26,7 @@ public class Phase2 : MonoBehaviour
     }
     private IEnumerator SpawnEnemies()
     {
-        spawnPosition = new Vector3(-1.8f, 5f, 0f);
+        spawnPosition = new Vector3(-1.8f, 7f, 0f);
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].GetComponent<Enemy>().SetHp(3);
@@ -40,7 +40,7 @@ public class Phase2 : MonoBehaviour
                 yield return new WaitForSeconds(0.35f);
             }
         }
-        spawnPosition = new Vector3(-1.7f, 5f, 0f);
+        spawnPosition = new Vector3(-1.7f, 7f, 0f);
         bolatoa.GetComponent<Enemy>().SetHp(2);
         for (int i = 0; i < 4; i++)
         {
@@ -48,7 +48,7 @@ public class Phase2 : MonoBehaviour
             StartCoroutine (DestroyEnemy(bolatoaEnemy)); 
         }
         yield return new WaitForSeconds(0.35f);
-        spawnPosition = new Vector3(-1.15f, 5f, 0f);
+        spawnPosition = new Vector3(-1.15f, 7f, 0f);
         for(int i = 0; i < 3; i++)
         {
             GameObject bolatoaEnemy = Instantiate(bolatoa, spawnPosition + new Vector3(1.15f*i, 0f, 0f), Quaternion.identity, transform);
@@ -57,7 +57,7 @@ public class Phase2 : MonoBehaviour
     }
     private IEnumerator DestroyEnemy(GameObject obj)
     {
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(6.5f);
         if(obj != null)
         {
             Destroy(obj);
