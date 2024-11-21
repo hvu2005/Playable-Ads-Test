@@ -22,7 +22,7 @@ public class Phase3 : MonoBehaviour
         sa = GetComponent<SkeletonAnimation>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehave>();
         attackTimeCounter = attackTime;
-        StartCoroutine(Spawn());
+        Spawn();
     }
 
     // Update is called once per frame
@@ -49,13 +49,11 @@ public class Phase3 : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         rb.velocity = Vector2.zero;
     }
-    private IEnumerator Spawn()
+    private void Spawn()
     {
         InputManager.instance.canAction = false;
         player.transform.DOMove(standPoint.transform.position,0.65f);
-        rb.velocity = new Vector2 (0f, -moveSpeed);
-        yield return new WaitForSeconds(0.65f);
-        rb.velocity = Vector2.zero;
+        transform.DOMove(new Vector2(0f,1.7f),0.65f);
     }
     #endregion
 }

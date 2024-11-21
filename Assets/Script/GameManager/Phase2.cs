@@ -29,27 +29,38 @@ public class Phase2 : MonoBehaviour
         spawnPosition = new Vector3(-1.8f, 5f, 0f);
         for (int i = 0; i < enemies.Length; i++)
         {
+            enemies[i].GetComponent<Enemy>().SetHp(3);
             for (int j = 0; j < 5; j++)
             {
                 for (int k = 0; k < 7; k++)
                 {
-                    Instantiate(enemies[i], spawnPosition + new Vector3(0.6f * k, 0f, 0f), Quaternion.identity, transform);
-                    enemies[i].GetComponent<Enemy>().SetHp(2);
+                    GameObject enemy = Instantiate(enemies[i], spawnPosition + new Vector3(0.6f * k, 0f, 0f), Quaternion.identity, transform);
+                    StartCoroutine(DestroyEnemy(enemy));
                 }
                 yield return new WaitForSeconds(0.3f);
             }
         }
         spawnPosition = new Vector3(-1.7f, 5f, 0f);
-        bolatoa.GetComponent<Enemy>().SetHp(1);
+        bolatoa.GetComponent<Enemy>().SetHp(2);
         for (int i = 0; i < 4; i++)
         {
-            Instantiate(bolatoa, spawnPosition + new Vector3(1.15f * i, 0f, 0f), Quaternion.identity, transform);
+            GameObject bolatoaEnemy = Instantiate(bolatoa, spawnPosition + new Vector3(1.15f * i, 0f, 0f), Quaternion.identity, transform);
+            StartCoroutine (DestroyEnemy(bolatoaEnemy)); 
         }
         yield return new WaitForSeconds(0.3f);
-        spawnPosition = new Vector3(-1.15f, 5f, 0f);    
+        spawnPosition = new Vector3(-1.15f, 5f, 0f);
         for(int i = 0; i < 3; i++)
         {
-            Instantiate(bolatoa, spawnPosition + new Vector3(1.15f*i, 0f, 0f), Quaternion.identity, transform);
+            GameObject bolatoaEnemy = Instantiate(bolatoa, spawnPosition + new Vector3(1.15f*i, 0f, 0f), Quaternion.identity, transform);
+            StartCoroutine(DestroyEnemy(bolatoaEnemy));
+        }
+    }
+    private IEnumerator DestroyEnemy(GameObject obj)
+    {
+        yield return new WaitForSeconds(3.5f);
+        if(obj != null)
+        {
+            Destroy(obj);
         }
     }
 }

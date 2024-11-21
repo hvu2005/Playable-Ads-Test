@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Unity.PlasticSCM.Editor.WebApi;
 
 public class BulletShooter : MonoBehaviour
 {

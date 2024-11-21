@@ -186,7 +186,7 @@ MonoBehaviour:
   moveSpeed: 15
   fallSpeed: 3
   effect: {fileID: 7487761973100770945}
-  offset: {x: -0.4, y: 0.35, z: 0}
+  offset: {x: -0.45, y: 0.35, z: 0}
 --- !u!114 &7487761973983779021
 MonoBehaviour:
   m_ObjectHideFlags: 0
