@@ -83,9 +83,9 @@ public class BulletShooter : MonoBehaviour
     private void RingBullet()
     {
         GameObject ringBulletLeft = ringBulletPool.GetObject();
-        ringBulletLeft.transform.position = transform.position + new Vector3(ringBulletOffsetX, -0.25f,0f);
+        ringBulletLeft.transform.position = transform.position + new Vector3(ringBulletOffsetX, -0.15f,0f);
         GameObject ringBulletRight = ringBulletPool.GetObject();
-        ringBulletRight.transform.position = transform.position + new Vector3(-ringBulletOffsetX, -0.25f, 0f);
+        ringBulletRight.transform.position = transform.position + new Vector3(-ringBulletOffsetX, -0.15f, 0f);
     }
     private void ShootNormal(float offset)
     {

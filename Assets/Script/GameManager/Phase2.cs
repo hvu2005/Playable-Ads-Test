@@ -37,7 +37,7 @@ public class Phase2 : MonoBehaviour
                     GameObject enemy = Instantiate(enemies[i], spawnPosition + new Vector3(0.6f * k, 0f, 0f), Quaternion.identity, transform);
                     StartCoroutine(DestroyEnemy(enemy));
                 }
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.35f);
             }
         }
         spawnPosition = new Vector3(-1.7f, 5f, 0f);
@@ -47,7 +47,7 @@ public class Phase2 : MonoBehaviour
             GameObject bolatoaEnemy = Instantiate(bolatoa, spawnPosition + new Vector3(1.15f * i, 0f, 0f), Quaternion.identity, transform);
             StartCoroutine (DestroyEnemy(bolatoaEnemy)); 
         }
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.35f);
         spawnPosition = new Vector3(-1.15f, 5f, 0f);
         for(int i = 0; i < 3; i++)
         {
@@ -57,7 +57,7 @@ public class Phase2 : MonoBehaviour
     }
     private IEnumerator DestroyEnemy(GameObject obj)
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(5.5f);
         if(obj != null)
         {
             Destroy(obj);

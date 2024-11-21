@@ -56,4 +56,4 @@ MonoBehaviour:
   - {fileID: 1481807163507755818, guid: 5c3ffe03b2aa3c14ca38c715efb2f8ff, type: 3}
   - {fileID: 5626819625400276718, guid: 3ac51f2969e58f44fbde814b7ee8f692, type: 3}
   bolatoa: {fileID: 7246797204240864364, guid: 36257f077c6c5b340a2cb7d7b0c6e197, type: 3}
-  moveSpeed: 3
+  moveSpeed: 2

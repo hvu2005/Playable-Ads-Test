@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ae4270e11bb22489cbef1151ff57d4, type: 3}
   m_Name: item4Superior
   m_EditorClassIdentifier: 
-  bonusAttackSpeed: 0.04
+  bonusAttackSpeed: 0.1
   bonusLevel: 7
   intoSuperior: 1

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ae4270e11bb22489cbef1151ff57d4, type: 3}
   m_Name: Item2
   m_EditorClassIdentifier: 
-  bonusAttackSpeed: 0
+  bonusAttackSpeed: 0.03
   bonusLevel: 1
   intoSuperior: 0
